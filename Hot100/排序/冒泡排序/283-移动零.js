@@ -1,0 +1,60 @@
+/**
+ * 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+
+请注意 ，必须在不复制数组的情况下原地对数组进行操作。
+
+ 
+
+示例 1:
+
+输入: nums = [0,1,0,3,12]
+输出: [1,3,12,0,0]
+示例 2:
+
+输入: nums = [0]
+输出: [0]
+ 
+
+提示:
+
+1 <= nums.length <= 104
+-231 <= nums[i] <= 231 - 1
+ 
+
+进阶：你能尽量减少完成的操作次数吗？
+ */
+
+/**
+ * @param {number[]} nums
+ * @return {void} Do not return anything, modify nums in-place instead.
+ */
+var moveZeroes = function(nums) {
+    const n = nums.length;
+    // 方法一
+    // let count = 0;
+
+    // for(let i= 0 ; i<n-count; i++){
+    //     if(nums[i] === 0){
+    //         for(let j=i;j<n-1; j++){
+    //             nums[j] = nums[j+1];
+    //         }
+    //         nums[n-1-count] = 0;
+    //         count ++;
+    //         i--;
+    //     }
+        
+    // }
+    // 方法二
+    let j = 0;//用来记录下一个非0元素存放的位置
+    for(let i = 0; i<n; i++){
+        if(nums[i] !== 0){
+            nums[j] = nums[i];
+            j++;
+        }
+    }
+    for(let i = j; i<n;i++){
+        nums[i] = 0;
+    }
+
+   
+};
